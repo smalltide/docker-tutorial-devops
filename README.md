@@ -65,6 +65,11 @@ Docker file to create image
   > docker build -t smalltides/debian .
   > docker images
   > docker history smalltides/debian:latest
+  > docker build -t smalltides/debian:latest . --no-cache=true (no cache mode)
 ```
-
-
+push docker image to docker hub
+```
+  > docker login (must login docker hub)
+  > docker tag <image id> smalltides/debian:1.01
+  > docker push smalltides/debian:1.01
+```
