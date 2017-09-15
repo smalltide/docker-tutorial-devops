@@ -13,10 +13,34 @@ https://www.udemy.com/docker-tutorial-for-devops-run-docker-containers
 7. CirclCI
 8. DigitalOcean
 
-Command
+Show docker images list
 ```
-  > 
-  > 
-  > 
-  > 
+  > docker images
+```
+Login DockerHub
+```
+  > docker login
+```
+docker run
+```
+  > docker run busybox:1.24 echo "hello world"
+  > docker run busybox:1.24 ls /
+  > docker run -it busybox:1.24 (interactive mode)
+  > docker run -d busybox:1.24 sleep 1000 (docker run in background mode)
+  > docker run --rm busybox:1.24 sleep 1 (remove when finish run)
+  > docker run --name hello_world busybox:1.24 (define name for container)
+```
+docker inspect
+```
+  > docker inspect <container id>
+```
+docker inspect
+```
+  > docker inspect <container id>
+```
+
+docker logs
+```
+  > docker run -it -d -p 8888:8080 tomcat:8.0
+  > docker logs <container id>
 ```
