@@ -38,9 +38,25 @@ docker inspect
 ```
   > docker inspect <container id>
 ```
-
 docker logs
 ```
-  > docker run -it -d -p 8888:8080 tomcat:8.0
+  > docker run -it -d -p 8888:8080 tomcat:8.0 (-p host_port : container_port)
   > docker logs <container id>
 ```
+docker image layer history
+```
+  > docker history busybox:1.24
+  >
+  > docker run -it debian:jessie
+  > apt-get update && apt-get install -y git (install git in container)
+  > exit
+  > docker history debian:jessie
+```
+docker commit
+```
+  > docker container ls -a
+  > docker commit <container id> smalltides/debian:1.0 (commit a new image from container id)
+  > docker images
+  >
+```
+
