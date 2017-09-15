@@ -52,11 +52,18 @@ docker image layer history
   > exit
   > docker history debian:jessie
 ```
-docker commit
+docker commit to create image
 ```
   > docker container ls -a
   > docker commit <container id> smalltides/debian:1.0 (commit a new image from container id)
   > docker images
-  >
+  > docker history smalltides/debian:1.0
+  > docker run -it smalltides/debian:1.0
 ```
+Docker file to create image
+```
+  > docker build -t smalltides/debian .
+  > docker images
+```
+
 
