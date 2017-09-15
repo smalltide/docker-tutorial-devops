@@ -73,3 +73,10 @@ push docker image to docker hub
   > docker tag <image id> smalltides/debian:1.01
   > docker push smalltides/debian:1.01
 ```
+use Dcokerfile to create a containerize python app
+```
+  > docker build -t dockerapp:0.1 .
+  > docker run -d -p 5000:5000 <image id>
+  > docker exec -it <container id> bash
+  > ps aux
+```
