@@ -64,6 +64,7 @@ Docker file to create image
 ```
   > docker build -t smalltides/debian .
   > docker images
+  > docker history smalltides/debian:latest
 ```
 
 
