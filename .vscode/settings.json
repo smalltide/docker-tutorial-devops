@@ -1,0 +1,7 @@
+{
+    "python.linting.pylintEnabled": false,
+    "python.autoComplete.extraPaths": [
+        "/usr/local/lib/python3.6/site-packages",
+        "/usr/local/Cellar/python3/3.6.0/Frameworks/Python.framework/Versions/3.6/lib/python3.6"
+    ]
+}

@@ -80,3 +80,21 @@ use Dcokerfile to create a containerize python app
   > docker exec -it <container id> bash
   > ps aux
 ```
+use Dcokerfile to create a containerize python app
+```
+  > git clone -b v0.1 git@github.com:smalltide/dockerapp.git dockerapp
+  > cd dockerapp
+  > docker build -t dockerapp:v0.1 .
+  > docker run -d -p 5000:5000 dockerapp:v0.1
+  > docker exec -it <container id> bash
+  > ps aux
+```
+use Dcokerfile to create a two container(flask and redis) app
+```
+  > git clone -b v0.3 git@github.com:smalltide/dockerapp.git dockerapp0.3
+  > cd dockerapp0.3
+  > docker build -t dockerapp:v0.3 .
+  > docker images
+  > docker run -d --name redis redis:3.2.0
+  > docker run -d -p 5000:5000 --link redis dockerapp:v0.3
+```
