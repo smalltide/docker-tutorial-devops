@@ -89,7 +89,7 @@ use Dcokerfile to create a containerize python app
   > docker exec -it <container id> bash
   > ps aux
 ```
-use Dcokerfile to create a two container(flask and redis) app
+use docker --link to link a two container(flask and redis) app
 ```
   > git clone -b v0.3 git@github.com:smalltide/dockerapp.git dockerapp0.3
   > cd dockerapp0.3
