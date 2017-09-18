@@ -154,3 +154,11 @@ define container netwokr with docker-compose
   > docker network ls (dockerapp0.4 app run on dockerapp04_my_net)
 ```
 ![alt text](https://github.com/smalltide/docker-tutorial-devops/blob/master/docker-compose-example.png "docker-compose-example")
+
+Write and Run Unit Tests inside Containers
+```
+  > git clone -b v0.5 git@github.com:smalltide/dockerapp.git dockerapp0.5
+  > cd dockerapp0.5
+  > docker-compose up -d
+  > docker-compose run dockerapp python test.py
+```
