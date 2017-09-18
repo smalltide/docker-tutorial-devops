@@ -145,5 +145,12 @@ four types docker network
   > need Running Docker engine in Swarm mode
   > need A key-value store such as consul
   > most use on production mode
-
+```
+define container netwokr with docker-compose
+```
+  > git clone -b v0.4 git@github.com:smalltide/dockerapp.git dockerapp0.4
+  > cd dockerapp0.4
+  > docker-compose up -d
+  > docker network ls (dockerapp0.4 app run on dockerapp04_my_net)
+  ![alt text](https://github.com/smalltide/docker-tutorial-devops/blob/master/docker-compose-example.png "docker-compose-example")
 ```
