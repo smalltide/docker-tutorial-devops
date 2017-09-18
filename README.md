@@ -98,3 +98,16 @@ use docker --link to link a two container(flask and redis) app
   > docker run -d --name redis redis:3.2.0
   > docker run -d -p 5000:5000 --link redis dockerapp:v0.3
 ```
+use docker-compose create two container(flask and redis) app
+```
+  > docker-compose version 
+  > cd dockerapp0.3
+  > docker-compose up
+  > docker-compose up -d (run in background)
+  > docker-compose ps
+  > docker-compose logs -f (monitor log)  
+  > docker-compose logs <app_name>
+  > docker-compose stop
+  > docker-compose rm
+  > docker-compose build (force rebuild)
+```
