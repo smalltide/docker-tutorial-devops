@@ -162,3 +162,8 @@ Write and Run Unit Tests inside Containers
   > docker-compose up -d
   > docker-compose run dockerapp python test.py
 ```
+Introduction to Continuous Integration(Github and CircleCI)
+```
+  > ssh-keygen -t rsa -b 4096 -C "your_email@example.com" (genrate ssh key)
+  > cat ~/.ssh/id_rsa.pub
+```
