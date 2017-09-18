@@ -1,3 +1,4 @@
+version: "2"
 services:
   dockerapp:
     build: .
@@ -5,7 +6,6 @@ services:
       - "5000:5000"
     volumes:
       - ./app:/app
-    depends_on:
-      - redis
+      
   redis:
     image: redis:3.2.0
