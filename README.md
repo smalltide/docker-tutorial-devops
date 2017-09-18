@@ -111,3 +111,39 @@ use docker-compose create two container(flask and redis) app
   > docker-compose rm
   > docker-compose build (force rebuild)
 ```
+four types docker network
+```
+  > (None Network, support one host network)
+  > docker network ls
+  > docker run -d --net none busybox sleep 1000 (none network)
+  > docker exec -it <container id> /bin/ash
+  > ping 8.8.8.8 (no reach, only loopback network)
+  >
+  > (Bridge Network, support one host network)
+  > docker network ls
+  > docker network inspect bridge
+  > docker run -d --name c_1 busybox sleep 1000 (default bridge network)
+  > docker exec -it c_1 ifconfig (two network interface)
+  > docker run -d --name c_2 busybox sleep 1000 (default bridge network)
+  > docker exec -it c_2 ifconfig (two network interface)
+  > docker exec -it c_1 ping 172.17.0.3 (c_1 ping c_2)
+  > docker network create --driver bridge my_bridge
+  > docker network inspect my_bridge
+  > docker run -d --name c_3 --net my_bridge busybox sleep 1000 (use my_bridge network)
+  > docker exec -it c_3 ifconfig (c3 ip in my_bridge network)
+  > docker exec -it c_3 ping 172.17.0.2 (c_3 ping c_1, no reach)
+  > docker network connect bridge c_3 (connect c_3 and default bridge network)
+  > docker exec -it c_3 ifconfig (c3 ip in bridge and my_bridge network)
+  > docker exec -it c_3 ping 172.17.0.3 (my_bridge c_3 can ping bridge c_2)
+  > docker network disconnect bridge c_3 (disconnect c_3 and default bridge network)
+  >
+  > (Host Network, support one host network)
+  > docker run -d --name c_4 --net host busybox sleep 1000
+  > docker exec -it c_4 ifconfig (c4 run on host machine network)
+  >
+  > (Overlay Network, support multi-host network)
+  > need Running Docker engine in Swarm mode
+  > need A key-value store such as consul
+  > most use on production mode
+
+```
