@@ -2,9 +2,20 @@ version: "3.0"
 services:
   dockerapp:
     image: smalltides/dockerapp
+    environment:
+      - constraint:node==master
     ports:
       - "5000:5000"
     depends_on:
       - redis
+    networks:
+      - mynet
+    
   redis:
     image: redis:3.2.0
+    networks:
+      - mynet
+
+networks:
+  mynet:
+    driver: overlay

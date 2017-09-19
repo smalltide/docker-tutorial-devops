@@ -198,3 +198,27 @@ Introduction to Docker Swarm and Service Discovery
 ```
 ![alt text](https://github.com/smalltide/docker-tutorial-devops/blob/master/img/docker-swarm.png "docker-swarm")
 ![alt text](https://github.com/smalltide/docker-tutorial-devops/blob/master/img/deploy-swarm-step.png "deploy-swarm-step")
+
+Deploy Docker Application to the Cloud with Docker Swarm
+```
+  > docker-machine create -d digitalocean --swarm \
+  --swarm-master \
+  --swarm-discovery="consul://${KV_IP}:8500" \
+  --engine-opt="cluster-store=consul://${KV_IP}:8500" \
+  --engine-opt="cluster-advertise=eth1:2376" \
+  master (create swarm master node)
+  >
+  > docker-machine create \
+  -d digitalocean \
+  --swarm \
+  --swarm-discovery="consul://${KV_IP}:8500" \
+  --engine-opt="cluster-store=consul://${KV_IP}:8500" \
+  --engine-opt="cluster-advertise=eth1:2376" \
+  slave (create swarm slave node)
+  >
+  > eval $(docker-machine env -swarm master)
+  > docker info (see 2 docker swarm cluster node)
+  > docker-compose -f prod.yml up -d (run in master node, deploy to swarm cluster)
+  > docker network ls
+  > docker container ls
+```
