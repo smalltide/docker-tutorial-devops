@@ -180,3 +180,21 @@ use docker machine to create vm using digitalocean driver and deploy app
   > revise "build: ." to  "image: smalltides/dockerapp' in rod.yml
   > docker-compose -f prod.yml up -d
 ```
+Introduction to Docker Swarm and Service Discovery
+```
+  > export DIGITALOCEAN_ACCESS_TOKEN=<DigitalOcean API ACCESS TOKEN>
+  > export DIGITALOCEAN_PRIVATE_NETWORKING=true
+  > export DIGITALOCEAN_IMAGE=debian-8-x64
+  > docker-machine create -d digitalocean consul
+  > docker-machine ssh consul ifconfig
+  > docker-machine env consul
+  > ping -c 1 $(docker-machine ssh consul 'ifconfig eth0 | grep "inet addr:" | cut -d: -f2 | cut -d" " -f1') 
+  > reach
+  > ping -c 1 $(docker-machine ssh consul 'ifconfig eth1 | grep "inet addr:" | cut -d: -f2 | cut -d" " -f1')
+  > no reach
+  > export KV_IP=$(docker-machine ssh consul 'ifconfig eth1 | grep "inet addr:" | cut -d: -f2 | cut -d" " -f1')
+  > eval $(docker-machine env consul)
+  > docker run -d -p ${KV_IP}:8500:8500 --restart always gliderlabs/consul-server -bootstrap
+```
+![alt text](https://github.com/smalltide/docker-tutorial-devops/blob/master/img/docker-swarm.png "docker-swarm")
+![alt text](https://github.com/smalltide/docker-tutorial-devops/blob/master/img/deploy-swarm-step.png "deploy-swarm-step")
