@@ -167,3 +167,16 @@ Introduction to Continuous Integration(Github and CircleCI)
   > ssh-keygen -t rsa -b 4096 -C "your_email@example.com" (genrate ssh key)
   > cat ~/.ssh/id_rsa.pub
 ```
+![alt text](https://github.com/smalltide/docker-tutorial-devops/blob/master/img/ci-flow.png "ci-flow")
+
+use docker machine to create vm using digitalocean driver and deploy app
+```
+  > docker-machine create --driver digitalocean --digitalocean-access-token <DigitalOcean API ACCESS TOKEN> dockerapp-vm
+  > docker-machine ls
+  > docker-machine env dockerapp-vm
+  > eval $(docker-machine env dockerapp-vm) 
+  > docker info (now see docker client connect to digitalocean)
+  > cp docker-compose.yml prod.yml
+  > revise "build: ." to  "image: smalltides/dockerapp' in rod.yml
+  > docker-compose -f prod.yml up -d
+```
