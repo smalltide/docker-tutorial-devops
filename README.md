@@ -222,3 +222,11 @@ Deploy Docker Application to the Cloud with Docker Swarm
   > docker network ls
   > docker container ls
 ```
+CircleCI with Automation CD and AWS, GCP and Kubernetes
+```
+  > Continuous deployment Docker, AWS and circle-ci
+  > https://medium.com/soosap/continuous-deployment-w-docker-aws-and-circle-ci-82f4b14256cc
+  >
+  > CircleCI can deploy Google Compute Engine and Kubernetes
+  > https://circleci.com/docs/1.0/docker/#google-compute-engine-and-kubernetes
+```
